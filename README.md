@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- HEADER -->
+<h1 align="center">Rancid Tomatillos</h1>
 
-## Available Scripts
+<h3 align="center">A Movie Database Site</h3>
 
-In the project directory, you can run:
+<!-- <h4 align="center"><a href="https://vfields.github.io/travel-tracker/"><strong>Deploy Link</strong></a> | <a href="https://github.com/vfields/travel-tracker"><strong>Explore The Docs »</strong></a></h4> -->
 
-### `npm start`
+<h5 align="center">(PS. Your username is <code>customer</code> plus any number between <code>1-50</code>, i.e. <code>customer25</code>, and your password is <code>overlook2021</code>!)</h5>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p></p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- TABLE OF CONTENTS -->
+<!-- <details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li>
+        <a href="#features">Features</a>
+        <ul>
+            <li><a href="#reflections">Reflections</a>
+        </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details> -->
 
-### `npm test`
+## About The Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<p align="center">
+    <img width="700" src="https://user-images.githubusercontent.com/110209726/201823763-e89c8d1c-68e5-4ffb-91ee-26c70aa3cb94.gif" alt="Hotel Manager preview gif">
+    <img width="700" src="https://user-images.githubusercontent.com/110209726/201823890-e589e15d-e38e-42ff-b6de-205edad4db69.png" alt="Hotel Manager preview image">
 
-### `npm run build`
+</p>
+<br />
+This solo project was assigned at the end of the second module of Turing's Front-End Engineering program, about 11-12 weeks into its students learning how to code. The details of this project are outlined in <a href="https://frontend.turing.edu/projects/overlook.html">this</a> project spec.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![JavaScript][JavaScript-shield]
+![CSS][CSS-shield]
+![HTML5][HTML-shield]
+![Mocha][Mocha-shield]
+![Chai][Chai-shield]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### `npm run eject`
+## Setup
+- Clone the repository to your local machine
+- Clone down <a href="https://github.com/turingschool-examples/overlook-api">this</a> local server
+- `cd` into the local server
+- Run `npm install`, and then `npm start`
+- Once the local server is launched, open a new terminal tab and `cd` into this project
+- Run `npm install` to install project dependencies
+- Run `npm start` to launch the live server
+- Copy and paste the provided localhost URL into your browser
+- Remember, your username is <code>customer</code> plus any number between <code>1-50</code>, i.e. <code>traveler26</code>, and your password is <code>overlook2021</code>!
+- Explore and enjoy!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Roadmap
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [ ] Create hotel manager interaction
+- [ ] Utilize DELETE network request via hotel manager interaction
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Utilizes class-to-class interaction and a robust Mocha and Chai testing suite
+- Implements both GET and POST network requests via fetch API to retrieve, display, and add new user data
+- Handles both network request- and user-errors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Reflections
+<b>Wins:</b><br>
+Asynchronous tasks and network requests are difficult concepts I struggled wrapping my head around throughout mod 2, but this project truly allowed me to have a better grasp of it!
+<p>
+<b>Challenges:</b><br>
+I don't believe I utilized classes as optimally as I can since I feel like there's a bit of redundancy in my code.
 
-### Code Splitting
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contact
 
-### Analyzing the Bundle Size
+Dana Truong | [LinkedIn](https://www.linkedin.com/in/dana-truong-a1b35a250/) | [GitHub](https://github.com/tramtram1130)<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Making a Progressive Web App
+<!-- MARKDOWN LINKS & IMAGES -->
+[JavaScript-shield]: https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
+[CSS-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[HTML-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[Mocha-shield]: https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=Mocha&logoColor=white
+[Chai-shield]: https://img.shields.io/badge/Chai-A30701?style=for-the-badge&logo=chai&logoColor=white
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
