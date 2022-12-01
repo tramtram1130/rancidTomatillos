@@ -15,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1>Rancid Tomatillos</h1>
         <Movies allMovies={this.state.allMovies} />
       </main>
     )
