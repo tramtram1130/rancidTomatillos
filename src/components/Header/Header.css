@@ -1,0 +1,13 @@
+header {
+    background-color: rgb(10, 10, 10);
+    color: #fff;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 0px;
+    gap: 20px;
+}
