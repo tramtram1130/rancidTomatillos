@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 
 import movieData from '../../data/movieData'
-import Movies from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/movies/Movies.js'
-import MoviePage from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/moviepage/MoviePage.js'
+import Movies from '../Movies/Movies'
+import MoviePage from '../moviepage/MoviePage'
 
 class App extends Component {
   constructor() {
@@ -19,12 +19,16 @@ class App extends Component {
     this.setState({selectedMovie: userSelectedMovie})
   }
 
+  viewHome = () => {
+    this.setState({ selectedMovie: '' })
+  }
+
   render() {
     return (
       <main>
         {
           this.state.selectedMovie ? 
-          <MoviePage details={this.state.selectedMovie}/> : 
+          <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/> : 
           <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie} />
         }
       </main>
