@@ -9,6 +9,7 @@ const Movies = (props) => {
         <Card
           key={movie.id}
           id={movie.id}
+          viewMovie={props.viewMovie}
           posterPath={movie.poster_path}
         />
     )

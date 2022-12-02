@@ -11,13 +11,13 @@ class Card extends Component {
   }
 
   handleClick = (event) => {
-    console.log(event.target.id)
+    this.props.viewMovie(event.target.id)
   }
   
   render() {
     return (
       <div className='card-container'>
-        <img className='card' id={this.state.id} onClick={this.handleClick} src={this.state.posterPath} />
+        <img className='card' id={this.state.id} onClick={() => this.props.viewMovie(this.state.id)} src={this.state.posterPath} />
       </div>
     )
   }
