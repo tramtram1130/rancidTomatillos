@@ -23,7 +23,6 @@ class Header extends Component {
                         autoCorrect='off'
                     />
                 </div>
-                
             </header>
         )
     }
