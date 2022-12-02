@@ -2,20 +2,31 @@ import React, { Component } from 'react'
 import './App.css'
 
 import movieData from '../../data/movieData'
-import Movies from '../Movies/Movies'
+import Movies from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/movies/Movies.js'
+import MoviePage from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/moviepage/MoviePage.js'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      allMovies: movieData
+      allMovies: movieData,
+      selectedMovie: ''
     }
+  }
+
+  viewSelectedMovie = (id) => {
+    const userSelectedMovie = this.state.allMovies.movies.filter(movie => movie.id == id)
+    this.setState({selectedMovie: userSelectedMovie})
   }
 
   render() {
     return (
       <main>
-        <Movies allMovies={this.state.allMovies} />
+        {
+          this.state.selectedMovie ? 
+          <MoviePage details={this.state.selectedMovie}/> : 
+          <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie} />
+        }
       </main>
     )
   }
