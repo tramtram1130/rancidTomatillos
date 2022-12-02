@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../Card/Card'
+import Card from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/card/Card.js'
 import './Movies.css'
 
 const Movies = (props) => {
@@ -8,6 +8,7 @@ const Movies = (props) => {
     return (
         <Card
           key={movie.id}
+          id={movie.id}
           posterPath={movie.poster_path}
         />
     )

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 
 import movieData from '../../data/movieData'
-import Movies from '../Movies/Movies'
+import Movies from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/movies/Movies.js'
 
 class App extends Component {
   constructor() {
