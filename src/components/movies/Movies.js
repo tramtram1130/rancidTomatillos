@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/card/Card.js'
+import Card from '../Card/Card'
 import './Movies.css'
 
 const Movies = (props) => {
