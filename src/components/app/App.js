@@ -11,26 +11,35 @@ class App extends Component {
     this.state = {
       allMovies: 'movieData',
       selectedMovie: '',
-      isLoading: true
+      allMoviesLoading: true,
+      singleMovieLoading: true
     }
   }
 
   componentDidMount = () => {
-    console.log('Component Did Mount')
+    // console.log('Component Did Mount')
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
-      .then(data => this.setState({allMovies: data, isLoading: false}))
-      .then(() => console.log('static data', this.state.allMovies))
+      .then(data => this.setState({allMovies: data, allMoviesLoading: false}))
+      // .then(() => console.log('static data', this.state.allMovies))
       .catch(err => console.log(err))
   }
 
-  componentDidUpdate = () => {
-    console.log('Component Did Update')
+  getSingleMovie = (id) => {
+    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + id
+    fetch(url)
+      .then(response => response.json())
+      // .then(data => console.log('single movie api', data))
+      .then(data => this.setState({selectedMovie: [data], singleMovieLoading: false}))
+      .catch(err => console.log(err))
   }
 
   viewSelectedMovie = (id) => {
-    const userSelectedMovie = this.state.allMovies.movies.filter(movie => movie.id == id)
-    this.setState({selectedMovie: userSelectedMovie})
+    this.getSingleMovie(id)
+    console.log(this.state.selectedMovie)
+    // const userSelectedMovie = this.state.allMovies.movies.filter(movie => movie.id === id)
+    // console.log(this.getSingleMovie(id))
+    // this.setState({selectedMovie: userSelectedMovie})
   }
 
   viewHome = () => {
@@ -40,10 +49,10 @@ class App extends Component {
   render() {
     return (
       <main>
-        {this.state.isLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
+        {this.state.allMoviesLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
         {this.state.selectedMovie 
-        ? <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/>
-        : (!this.state.isLoading && <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie}/>)}
+        ? (!this.state.singleMovieLoading && <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/>)
+        : (!this.state.allMoviesLoading && <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie}/>)}
       </main>
     )
   }
