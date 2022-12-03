@@ -41,8 +41,9 @@ class App extends Component {
     return (
       <main>
         {this.state.isLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
-        {this.state.selectedMovie && <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/>}
-        {!this.state.isLoading && <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie}/>}
+        {this.state.selectedMovie 
+        ? <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/>
+        : (!this.state.isLoading && <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie}/>)}
       </main>
     )
   }
