@@ -1,0 +1,63 @@
+.movie-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 15px;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 100%;
+
+}
+
+.movie-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin: 15px 0 0 ;
+    padding: 0;
+}
+
+.movie-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    margin-top: 0;
+}
+
+.movie-tag {
+    /* font-style: italic; */
+    margin: 0px;
+}
+
+.movie-overview {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 15px 0 0px 0; 
+}
+
+.movie-overview p {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px 0 15px 0; 
+}
+
+.home-btn {
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: 5px solid rosybrown;
+    padding: 15px 32px;
+    margin: 10px 7px;
+    font-size: 16px;
+}
+
+.home-btn:hover {
+    background-color: blueviolet;
+    color: #fff;
+}
+
+/* ^^^^ change the colours of these buttons later and on the hover - these are just place holders for now */
+
