@@ -12,7 +12,8 @@ class App extends Component {
       allMovies: 'movieData',
       selectedMovie: '',
       allMoviesLoading: true,
-      singleMovieLoading: true
+      singleMovieLoading: true,
+      error: ''
     }
   }
 
@@ -22,7 +23,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.setState({allMovies: data, allMoviesLoading: false}))
       // .then(() => console.log('static data', this.state.allMovies))
-      .catch(err => console.log(err))
+      .catch(err => this.setState({error: err}))
   }
 
   getSingleMovie = (id) => {
@@ -49,6 +50,7 @@ class App extends Component {
   render() {
     return (
       <main>
+        {this.state.error && <h3>Oops, something went wrong!</h3>}
         {this.state.allMoviesLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
         {this.state.selectedMovie 
         ? (!this.state.singleMovieLoading && <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/>)
