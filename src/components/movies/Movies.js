@@ -1,9 +1,9 @@
 import React from 'react'
-import Card from '../Card/Card'
+import Card from '/Users/tramtram/turing_work/3mod/projects/2week/rancid-tomatillos/src/components/card/Card.js'
 import './Movies.css'
 
 const Movies = (props) => {
-  console.log('props', props)
+  // console.log('props', props)
   const movieList = props.allMovies.movies.map(movie => {
     return (
         <Card
