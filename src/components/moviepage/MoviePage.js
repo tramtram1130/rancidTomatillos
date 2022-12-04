@@ -3,7 +3,7 @@ import './MoviePage.css';
 
 const MoviePage = ({ details, viewHome }) => {
   const { backdrop_path, title, genres, release_date, budget, revenue, runtime, average_rating, tagline, overview } = details[0].movie
-  let dollarUSLocale = Intl.NumberFormat('en-US');  
+  let dollarUSLocale = Intl.NumberFormat('en-US');
   console.log(details[0].movie)
   return (
     <div className='movie-display'>
@@ -12,18 +12,16 @@ const MoviePage = ({ details, viewHome }) => {
       <p className='movie-info'>
         Release Date: {release_date} | Run Time: {runtime} min | Avg Rating: {parseInt(average_rating).toFixed(2)}
       </p>
-      <ol>
-      <ol>
-      {genres.map((genre) => (
-        <li key={genre}>{genre}</li>
-      ))}
-    </ol>
-      </ol>
+      <ul>
+        {genres.map((genre) => (
+          <li key={genre}>{genre}</li>
+        ))}
+      </ul>
       <h2 className='movie-tag'>{tagline}</h2>
       <h3 className='movie-overview'>Overview</h3>
-        <p className='movie-overview'>
+      <p className='movie-overview'>
         {overview}
-        </p>
+      </p>
       <p>Budget: ${dollarUSLocale.format(budget)} | Revenue: ${dollarUSLocale.format(revenue)}</p>
       <button className='home-btn' onClick={() => viewHome()}>home</button>
     </div>
