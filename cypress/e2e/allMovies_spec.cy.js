@@ -14,15 +14,23 @@ describe('Feedback Loop login flows', () => {
         cy.get('.header-container').contains('Rancid Tomatillos')
     });
 
-    // it('should show all the movies when the application loads', () => {
-    //     cy.intercept(
-    //         {
-    //           method: 'GET', // Route all GET requests
-    //           url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', // that have a URL that matches '/users/*'
-    //         },
-    // })
+    it('should show all the movies when the application loads', () => {
+        cy.intercept(
+            {
+              method: 'GET',
+              url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', 
+            },
+        )
+        cy.get('.card-container').within(() => {
+            cy.get('.card').should('have.length', 40)
+            cy.get('.card').eq(0)
+        })
+    })
 
-    it('should show additional ')
+    // it('should show additional details about a movie if user clicks on it', () => {
+    //     cy.get('img').click()
+    //     cy.contains('Release Date')
+    // })
 
     //   it('Should be able to select the email and password inputs and fill them with the corresponding values', () => {
     //     cy.get('input[type="email"]')
