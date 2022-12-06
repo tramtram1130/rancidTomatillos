@@ -8,6 +8,12 @@ describe('Feedback Loop login flows', () => {
 
     beforeEach(() => {
         cy.visit('http://localhost:3000');
+        cy.intercept(
+            {
+              method: 'GET',
+              url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', 
+            },
+        )
     });
 
     it('should show the title of the application when it loads', () => {
@@ -15,12 +21,6 @@ describe('Feedback Loop login flows', () => {
     });
 
     it('should show all the movies when the application loads', () => {
-        cy.intercept(
-            {
-              method: 'GET',
-              url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', 
-            },
-        )
         cy.get('.card-container').within(() => {
             cy.get('.card').should('have.length', 40)
             cy.get('.card').eq(0).should('have.id', 694919)
@@ -31,16 +31,14 @@ describe('Feedback Loop login flows', () => {
     })
 
     it('should show additional details about a movie if user clicks on it', () => {
-        cy.intercept(
-            {
-              method: 'GET',
-              url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', 
-            },
-        )
         cy.get('.card').eq(0).click()
     })
 
-    it('should display all movie details after clicking on movie poster')
+    it('should display all movie details after clicking on movie poster', () => {
+        cy.get('.card').eq(0).click()
+        cy.get('.movie-container').should('be.visible')
+        cy.get('.movie-container').should('have.descendants', 'div')
+    })
 
     //   it('Should be able to select the email and password inputs and fill them with the corresponding values', () => {
     //     cy.get('input[type="email"]')
