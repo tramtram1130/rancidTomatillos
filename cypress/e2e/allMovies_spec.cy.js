@@ -11,7 +11,7 @@ describe('Feedback Loop login flows', () => {
     });
 
     it('should show the title of the application when it loads', () => {
-        cy.get('.header-container').contains('Rancid Tomatillos')
+        cy.get('.header-container').should('contain', 'Rancid Tomatillos')
     });
 
     it('should show all the movies when the application loads', () => {
@@ -23,14 +23,24 @@ describe('Feedback Loop login flows', () => {
         )
         cy.get('.card-container').within(() => {
             cy.get('.card').should('have.length', 40)
-            cy.get('.card').eq(0)
+            cy.get('.card').eq(0).should('have.id', 694919)
+            cy.get('.card').eq(1).should('have.id', 337401)
+            cy.get('.card').eq(2).should('have.id', 718444)
+            cy.get('.card').eq(3).should('have.id', 539885)
         })
     })
 
-    // it('should show additional details about a movie if user clicks on it', () => {
-    //     cy.get('img').click()
-    //     cy.contains('Release Date')
-    // })
+    it('should show additional details about a movie if user clicks on it', () => {
+        cy.intercept(
+            {
+              method: 'GET',
+              url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', 
+            },
+        )
+        cy.get('.card').eq(0).click()
+    })
+
+    it('should display all movie details after clicking on movie poster')
 
     //   it('Should be able to select the email and password inputs and fill them with the corresponding values', () => {
     //     cy.get('input[type="email"]')
