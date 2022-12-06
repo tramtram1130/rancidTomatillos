@@ -40,6 +40,14 @@ describe('Feedback Loop login flows', () => {
         cy.get('.movie-container').should('have.descendants', 'div')
     })
 
+    it('should have a movie poster on movie details page', () => {
+        cy.get('.card').eq(0).click()
+        cy.get('.movie-poster-container').should('have.descendants', 'img')
+        cy.get('.movie-poster').should('be.visible')
+    })
+    it('should have a title, release date, runtime, average rating, tagline, overview, budget, and revenue on movie details page')
+
+
     //   it('Should be able to select the email and password inputs and fill them with the corresponding values', () => {
     //     cy.get('input[type="email"]')
     //       .type('leta@turing.edu')
