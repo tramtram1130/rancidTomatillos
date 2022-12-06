@@ -9,4 +9,5 @@
 
 .card:hover {
     box-shadow: 0 5px 10px rgb(9, 165, 61);
+    cursor: pointer;
 }

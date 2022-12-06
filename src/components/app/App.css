@@ -1,3 +1,7 @@
+body {
+  background-color:  rgb(53, 53, 53);
+}
+
 main {
   background-image: linear-gradient(rgb(10, 10, 10), rgb(53, 53, 53));
   color: #fff;

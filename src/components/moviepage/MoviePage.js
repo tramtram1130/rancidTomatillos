@@ -28,7 +28,7 @@ const MoviePage = ({ details, viewHome }) => {
         <p>Budget: ${dollarUSLocale.format(budget)} | Revenue: ${dollarUSLocale.format(revenue)}</p>
         <button className='home-btn' onClick={() => viewHome()}>home</button>
       </div>
-
+      
     </section>
   )
 }
