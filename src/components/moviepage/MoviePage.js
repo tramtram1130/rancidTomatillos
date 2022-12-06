@@ -23,9 +23,9 @@ const MoviePage = ({ details, viewHome }) => {
           ))}
         </ul>
         <h2 className='movie-tag'>{tagline}</h2>
-        <h3 className='movie-overview'>Overview</h3>
+        <h3 className='movie-overview-title'>Overview</h3>
         <p className='movie-overview'>{overview}</p>
-        <p>Budget: ${dollarUSLocale.format(budget)} | Revenue: ${dollarUSLocale.format(revenue)}</p>
+        <p className='movie-money'>Budget: ${dollarUSLocale.format(budget)} | Revenue: ${dollarUSLocale.format(revenue)}</p>
         <button className='home-btn' onClick={() => viewHome()}>home</button>
       </div>
       

@@ -45,55 +45,28 @@ describe('Feedback Loop login flows', () => {
         cy.get('.movie-poster-container').should('have.descendants', 'img')
         cy.get('.movie-poster').should('be.visible')
     })
-    it('should have a title, release date, runtime, average rating, tagline, overview, budget, and revenue on movie details page')
 
+    it('should have a title, release date, runtime, average rating, tagline, overview, budget, and revenue on movie details page', () => {
+        cy.get('.card').eq(0).click()
+        cy.get('.movie-title').should('contain', 'Money Plane')
+        cy.get('.movie-info').should('contain', 'Release Date: 2020-09-29').should('contain', '82 min').should('contain', 'Avg Rating: 6.00')
+        cy.get('.movie-tag').should('contain', '')
+        cy.get('.movie-overview').should('contain', 'A professional thief with $40 million in debt and his family\'s life on the line must commit one final heist - rob a futuristic airborne casino filled with the world\'s most dangerous criminals.')
+        cy.get('.movie-money').should('contain', 'Budget: $0').should('contain', 'Revenue: $0')
+    })
 
-    //   it('Should be able to select the email and password inputs and fill them with the corresponding values', () => {
-    //     cy.get('input[type="email"]')
-    //       .type('leta@turing.edu')
-    //       .should('have.value', 'leta@turing.edu')
-    //       .get('input[type="password"]')
-    //       .type('keane20')
-    //       .should('have.value', 'keane20')
-    //   })
+    it('should show a list of genres on the movie details page', () => {
+        cy.get('.card').eq(0).click()    
+        cy.get('.genre-container').should('have.descendants', 'li').should('contain', 'Action')
+    })
 
-    //   it('Should display an error message when a user clicks the submit button without filling both inputs', () => {
-    //     cy.get('button').click()
-    //     cy.contains('Please fill out both inputs.')
-    //   })
+    it('should have a button that takes you back to the main page', () => {
+        cy.get('.card').eq(0).click()  
+        cy.get('button').click()
+        cy.get('.card-container').should('be.visible')  
 
-    //   it('Should be able to fill out the email and password and click Submit, directing the user to a different page', () => {
-    //     cy.intercept('POST', 'http://localhost:3001/api/v1/login', {
-    //       statusCode: 201,
-    //       body: {
-    //         id:2,
-    //         image: "https://ca.slack-edge.com/T029P2S9M-U37MJAV0T-007ccf2f5eb2-512",
-    //         name: "Leta Keane"
-    //       }
-    //     })
-    //     .get('input[type="email"]').type('leta@turing.edu')
-    //     .get('input[type="password"]').type('keane20')
-    //     .get('button').click()
-    //     .url().should('include', '/dashboard')
-    //   })
+    })
 
-    //   it('Should receive an error message that email and password don\'t match if user submits incorrect email and password inputs', () => {
-    //     cy.intercept({
-    //       method: 'POST',
-    //       url: 'http://localhost:3001/api/v1/login'
-    //     },
-    //     {
-    //       statusCode: 401,
-    //       body: {
-    //         message: 'Email and password do not match.  Please try again.'
-    //       }
-    //     })
-    //     .get('input[type="email"]').type('leta@turing.edu')
-    //     .get('input[type="password"]').type('YOLO')
-    //     .get('button').click()
-    //     .get('p').should('contain', 'Email and password do not match.  Please try again.')
-    //   })
-    // });
   });
   
 
