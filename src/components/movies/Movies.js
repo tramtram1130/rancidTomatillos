@@ -1,27 +1,21 @@
 import React from 'react'
 import Card from '../Card/Card'
 import './Movies.css'
-
-const Movies = (props) => {
-  // console.log('props', props)
-  const movieList = props.allMovies.movies.map(movie => {
+const Movies = ({ allMovies }) => {
+  const movieList = allMovies.map(movie => {
     return (
         <Card
           key={movie.id}
           id={movie.id}
-          viewMovie={props.viewMovie}
           posterPath={movie.poster_path}
         />
     )
   })
-
   return (
     <div className='movies-container'>
       {movieList}
     </div>
   )
 }
-
-
 
 export default Movies
