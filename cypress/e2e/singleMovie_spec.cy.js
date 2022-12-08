@@ -75,7 +75,7 @@ describe('Single movie view flow', () => {
         cy.get('.card').eq(0).click()  
         cy.get('button').click()
         cy.get('.card-container').should('be.visible')
-        cy.url().should('contain', '/')
+        cy.url().should('eq', 'http://localhost:3000/')
     })
 
     it('should show error message to user if network request fails', () => {
@@ -107,6 +107,14 @@ describe('Single movie view flow', () => {
         cy.url().should('include', '337401') 
     })
 
-    //shou
-    //if there is no revenue  
+    it('should be able to navigate back to home page and then forth to previous page', () => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+            statusCode: 201
+        })
+        cy.visit('http://localhost:3000/337401')
+        cy.go('back')
+        cy.url().should('eq', 'http://localhost:3000/')
+        cy.go('forward')
+        cy.url().should('eq', 'http://localhost:3000/337401')        
+    })
 })

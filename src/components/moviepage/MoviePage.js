@@ -36,7 +36,7 @@ class MoviePage extends Component {
         {this.state.isLoading && <img alt="Loading..." src="https://i.gifer.com/ZKZg.gif" />}
         {this.state.error && <h3>Oops, something went wrong!</h3>}
         <div className='movie-poster-container'>
-          <img className='movie-poster' src={this.state.movie.backdrop_path} />
+          <img className='movie-poster' src={this.state.movie.backdrop_path} alt={this.state.movie.title + ' movie image'}/>
         </div>
         <div className='info-container'>
           <h1 className='movie-title'>{this.state.movie.title}</h1>
