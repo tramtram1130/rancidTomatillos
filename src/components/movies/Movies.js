@@ -8,6 +8,7 @@ const Movies = ({ allMovies }) => {
           key={movie.id}
           id={movie.id}
           posterPath={movie.poster_path}
+          title={movie.title}
         />
     )
   })
