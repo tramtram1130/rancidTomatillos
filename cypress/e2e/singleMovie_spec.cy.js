@@ -63,7 +63,7 @@ describe('Single movie view flow', () => {
         cy.get('.movie-info').should('contain', 'Release Date: 2020-09-29').should('contain', '82 min').should('contain', 'Avg Rating: 6.00')
         cy.get('.movie-tag').should('contain', '')
         cy.get('.movie-overview').should('contain', 'A professional thief with $40 million in debt and his family\'s life on the line must commit one final heist - rob a futuristic airborne casino filled with the world\'s most dangerous criminals.')
-        cy.get('.movie-money').should('contain', 'Budget: $0').should('contain', 'Revenue: $0')
+        cy.get('.movie-money').should('contain', 'Budget: Not Available').should('contain', 'Revenue: Not Available')
     })
 
     it('should show a list of genres on the movie details page', () => {
@@ -74,7 +74,8 @@ describe('Single movie view flow', () => {
     it('should have a button that takes you back to the main page', () => {
         cy.get('.card').eq(0).click()  
         cy.get('button').click()
-        cy.get('.card-container').should('be.visible')  
+        cy.get('.card-container').should('be.visible')
+        cy.url().should('contain', '/')
     })
 
     it('should show error message to user if network request fails', () => {
@@ -82,6 +83,28 @@ describe('Single movie view flow', () => {
             statusCode: 404
         })
         cy.visit('http://localhost:3000').contains('Oops, something went wrong!')
+    })
+
+    it('should show budget not available if there is no budget for movie', () => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+            statusCode: 201
+        })
+        cy.visit('http://localhost:3000/610201').contains('Budget: Not Available')
+    })
+
+    it('should show revenue not available if there is no revenue for movie', () => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+            statusCode: 201
+        })
+        cy.visit('http://localhost:3000/610201').contains('Revenue: Not Available')
+    })
+
+    it('should contain the movie ID in the url', () => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+            statusCode: 201
+        })
+        cy.visit('http://localhost:3000/337401')
+        cy.url().should('include', '337401') 
     })
 
     //shou
