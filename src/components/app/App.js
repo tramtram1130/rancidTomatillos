@@ -1,60 +1,43 @@
 import React, { Component } from 'react'
 import './App.css'
-
-import movieData from '../../data/movieData'
 import Movies from '../Movies/Movies'
-import MoviePage from '../moviepage/MoviePage'
-
+import MoviePage from '../MoviePage/MoviePage'
+import { Route } from 'react-router-dom'
+import { getAllMovies } from './../../apiCalls';
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      allMovies: 'movieData',
-      selectedMovie: '',
-      allMoviesLoading: true,
-      singleMovieLoading: true,
+      allMovies: [],
+      isLoading: true,
       error: ''
     }
   }
-
   componentDidMount = () => {
-    // console.log('Component Did Mount')
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
-      .then(data => this.setState({allMovies: data, allMoviesLoading: false}))
-      // .then(() => console.log('static data', this.state.allMovies))
+    getAllMovies()
+      .then(data => this.setState({allMovies: data.movies, isLoading: false}))
       .catch(err => this.setState({error: err}))
   }
-
-  getSingleMovie = (id) => {
-    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + id
-    fetch(url)
-      .then(response => response.json())
-      // .then(data => console.log('single movie api', data))
-      .then(data => this.setState({selectedMovie: [data], singleMovieLoading: false}))
-      .catch(err => console.log(err))
-  }
-
-  viewSelectedMovie = (id) => {
-    this.getSingleMovie(id)
-    console.log(this.state.selectedMovie)
-    // const userSelectedMovie = this.state.allMovies.movies.filter(movie => movie.id === id)
-    // console.log(this.getSingleMovie(id))
-    // this.setState({selectedMovie: userSelectedMovie})
-  }
-
-  viewHome = () => {
-    this.setState({ selectedMovie: '' })
-  }
-
   render() {
     return (
       <main>
-        {this.state.error && <h3>Oops, something went wrong!</h3>}
-        {this.state.allMoviesLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
-        {this.state.selectedMovie 
-        ? (!this.state.singleMovieLoading && <MoviePage details={this.state.selectedMovie} viewHome={this.viewHome}/>)
-        : (!this.state.allMoviesLoading && <Movies allMovies={this.state.allMovies} viewMovie={this.viewSelectedMovie}/>)}
+        <Route exact path="/"
+          render={() => {
+            return (
+              <div>
+                {this.state.error && <h3>Oops, something went wrong!</h3>}
+                {this.state.isLoading
+                ? <img src="https://i.gifer.com/ZKZg.gif" />
+                :<Movies allMovies={this.state.allMovies}/>}
+              </div>
+            )
+          }}
+        />
+        <Route exact path="/:id"
+          render={({ match }) => {
+            return <MoviePage movieId={match.params.id} />
+          }}
+        />
       </main>
     )
   }
