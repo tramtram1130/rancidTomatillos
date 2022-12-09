@@ -4,6 +4,8 @@ import Movies from '../Movies/Movies'
 import MoviePage from '../MoviePage/MoviePage'
 import { Route } from 'react-router-dom'
 import { getAllMovies } from './../../apiCalls';
+import SearchBar from '../SearchBar/SearchBar'
+
 class App extends Component {
   constructor() {
     super()
@@ -25,6 +27,7 @@ class App extends Component {
           render={() => {
             return (
               <div>
+                <div className="search-bar-container">{<SearchBar />}</div>
                 {this.state.error && <h3>Oops, something went wrong!</h3>}
                 {this.state.isLoading
                 ? <img src="https://i.gifer.com/ZKZg.gif" />

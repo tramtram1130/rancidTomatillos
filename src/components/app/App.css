@@ -45,3 +45,9 @@ main {
     transform: rotate(360deg);
   }
 }
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
