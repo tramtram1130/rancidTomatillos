@@ -26,9 +26,9 @@ class SearchBar extends Component {
 
   handleChange = (event) => {
     event.preventDefault()
-    this.setState({search: event.target.value})
     this.handleFiltering()
     this.clearSearch()
+    this.setState({search: event.target.value})
   }
 
   handleFiltering = () => {
@@ -49,6 +49,7 @@ class SearchBar extends Component {
           placeholder='Search Movies'
           autoCorrect='off'
           onChange={this.handleChange}
+          onKeyUp={this.handleChange}
         />
       </div>
     )
