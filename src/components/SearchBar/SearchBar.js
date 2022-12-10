@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import Movies from '../Movies/Movies'
-import Card from '../Card/Card'
 import { getAllMovies } from '../../apiCalls'
 
 class SearchBar extends Component {
@@ -10,7 +8,6 @@ class SearchBar extends Component {
       allMovies: [],
       search: "",
       filteredMovies: []
-      // displaySearchedMovies: props.displaySearchedMovies
     }
   }
 
@@ -20,10 +17,18 @@ class SearchBar extends Component {
       .catch(err => console.log(err))
   }
 
+  clearSearch = () => {
+    if (this.state.search === "") {
+      this.setState({filteredMovies: []})
+      console.log('clearing')
+    }
+  }
+
   handleChange = (event) => {
     event.preventDefault()
     this.setState({search: event.target.value})
     this.handleFiltering()
+    this.clearSearch()
   }
 
   handleFiltering = () => {
@@ -34,13 +39,6 @@ class SearchBar extends Component {
   }
 
   render() {
-    const filteredMovieList = this.state.filteredMovies.map(movie => 
-    <Card 
-      key={movie.id}
-      id={movie.id}
-      posterPath={movie.poster_path}
-      title={movie.title}
-    />)
     return (
       <div>
         <input 
@@ -52,7 +50,6 @@ class SearchBar extends Component {
           autoCorrect='off'
           onChange={this.handleChange}
         />
-        {/* <div>{filteredMovieList}</div> */}
       </div>
     )
   }
