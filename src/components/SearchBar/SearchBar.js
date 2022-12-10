@@ -4,12 +4,13 @@ import Card from '../Card/Card'
 import { getAllMovies } from '../../apiCalls'
 
 class SearchBar extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       allMovies: [],
       search: "",
       filteredMovies: []
+      // displaySearchedMovies: props.displaySearchedMovies
     }
   }
 
@@ -29,6 +30,7 @@ class SearchBar extends Component {
     const search = this.state.search
     const matchedMovies = this.state.allMovies.filter(movie => (movie.title.toLowerCase()).includes(search.toLowerCase()))
     this.setState({filteredMovies: matchedMovies})
+    this.props.displaySearchedMovies(matchedMovies)
   }
 
   render() {
@@ -50,7 +52,7 @@ class SearchBar extends Component {
           autoCorrect='off'
           onChange={this.handleChange}
         />
-        <div>{filteredMovieList}</div>
+        {/* <div>{filteredMovieList}</div> */}
       </div>
     )
   }

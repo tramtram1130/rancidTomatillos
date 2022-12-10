@@ -12,8 +12,10 @@ class App extends Component {
     this.state = {
       allMovies: [],
       isLoading: true,
-      error: ''
+      error: '',
+      filteredMovieSearch: []
     }
+    this.displaySearchedMovies = this.displaySearchedMovies.bind(this.displaySearchedMovies)
   }
 
   componentDidMount = () => {
@@ -21,7 +23,13 @@ class App extends Component {
       .then(data => this.setState({allMovies: data.movies, isLoading: false}))
       .catch(err => this.setState({error: err}))
   }
-  
+
+  displaySearchedMovies = (filteredMovies) => {
+    if (filteredMovies.length > 0) {
+      this.setState({filteredMovieSearch: filteredMovies})
+    }
+  }
+
   render() {
     return (
       <main>
@@ -29,11 +37,13 @@ class App extends Component {
           render={() => {
             return (
               <div>
-                <div className="search-bar-container">{<SearchBar />}</div>
+                <div className="search-bar-container">{<SearchBar displaySearchedMovies={this.displaySearchedMovies}/>}</div>
                 {this.state.error && <h3>Oops, something went wrong!</h3>}
-                {this.state.isLoading
-                ? <img src="https://i.gifer.com/ZKZg.gif" />
-                :<Movies allMovies={this.state.allMovies}/>}
+                {this.state.isLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
+                {this.state.filteredMovieSearch.length === 0 
+                ? <Movies allMovies={this.state.allMovies}/>
+                : <Movies allMovies={this.state.filteredMovieSearch}/>
+              }
               </div>
             )
           }}
