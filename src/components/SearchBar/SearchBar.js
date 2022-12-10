@@ -1,18 +1,44 @@
 import React, { Component } from 'react'
+import Movies from '../Movies/Movies'
+import Card from '../Card/Card'
+import { getAllMovies } from '../../apiCalls'
 
 class SearchBar extends Component {
   constructor() {
     super()
     this.state = {
-      search: ""
+      allMovies: [],
+      search: "",
+      filteredMovies: []
     }
   }
 
-  handleChange = () => {
-    this.setState()
+  componentDidMount = () => {
+    getAllMovies()
+      .then(data => this.setState({allMovies: data.movies}))
+      .catch(err => console.log(err))
+  }
+
+  handleChange = (event) => {
+    event.preventDefault()
+    this.setState({search: event.target.value})
+    this.handleFiltering()
+  }
+
+  handleFiltering = () => {
+    const search = this.state.search
+    const matchedMovies = this.state.allMovies.filter(movie => (movie.title.toLowerCase()).includes(search.toLowerCase()))
+    this.setState({filteredMovies: matchedMovies})
   }
 
   render() {
+    const filteredMovieList = this.state.filteredMovies.map(movie => 
+    <Card 
+      key={movie.id}
+      id={movie.id}
+      posterPath={movie.poster_path}
+      title={movie.title}
+    />)
     return (
       <div>
         <input 
@@ -22,8 +48,9 @@ class SearchBar extends Component {
           name='search'
           placeholder='Search Movies'
           autoCorrect='off'
-          onClick={() => this.handleChange}
+          onChange={this.handleChange}
         />
+        <div>{filteredMovieList}</div>
       </div>
     )
   }

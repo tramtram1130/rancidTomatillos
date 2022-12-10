@@ -15,11 +15,13 @@ class App extends Component {
       error: ''
     }
   }
+
   componentDidMount = () => {
     getAllMovies()
       .then(data => this.setState({allMovies: data.movies, isLoading: false}))
       .catch(err => this.setState({error: err}))
   }
+  
   render() {
     return (
       <main>
