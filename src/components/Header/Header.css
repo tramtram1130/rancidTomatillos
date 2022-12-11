@@ -9,5 +9,16 @@ header {
     justify-content: center;
     width: 100vw;
     margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     gap: 20px;
+}
+
+.tomato {
+    height: 50px;
+    transform: scaleX(-1);
+}
+
+.tomato2 {
+    height: 50px;
 }
