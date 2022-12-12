@@ -37,8 +37,10 @@
 
 <br>
 <p align="center">
-    <img width="700" src="https://user-images.githubusercontent.com/110209726/201823763-e89c8d1c-68e5-4ffb-91ee-26c70aa3cb94.gif" alt="Hotel Manager preview gif">
-    <img width="700" src="https://user-images.githubusercontent.com/110209726/201823890-e589e15d-e38e-42ff-b6de-205edad4db69.png" alt="Hotel Manager preview image">
+<img width="1338" alt="Screenshot 2022-12-12 at 12 58 53 PM" src="https://user-images.githubusercontent.com/106535343/207132273-3eac4370-2b0e-4083-9377-9669db8f93ed.png">
+<img width="1387" alt="Screenshot 2022-12-12 at 12 58 35 PM" src="https://user-images.githubusercontent.com/106535343/207132277-5c34d3f8-3634-4479-83f2-e4b673da47f8.png">
+<img width="1376" alt="Screenshot 2022-12-12 at 12 38 36 PM" src="https://user-images.githubusercontent.com/106535343/207132285-8b90f14e-d818-4283-8b7d-ce767a15c34a.png">
+
 
 </p>
 <br />
@@ -102,4 +104,3 @@ Dana Truong | [LinkedIn](https://www.linkedin.com/in/dana-truong-a1b35a250/) | [
 [HTML-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [Mocha-shield]: https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=Mocha&logoColor=white
 [Chai-shield]: https://img.shields.io/badge/Chai-A30701?style=for-the-badge&logo=chai&logoColor=white
-
