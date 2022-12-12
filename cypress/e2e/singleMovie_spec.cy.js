@@ -8,36 +8,36 @@ describe('Single movie view flow', () => {
             body: {
                 movies: [
                     {
-                    id: 694919,
-                    poster_path: "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-                    title: "Money Plane",
-                    average_rating: 6.875,
-                    release_date: "2020-09-29"
+                    id: 436270,
+                    poster_path: "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+                    title: "Black Adam",
+                    average_rating: 4,
+                    release_date: "2022-10-19"
                     },
                     {
-                    id: 337401,
-                    poster_path: "https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
-                    title: "Mulan",
-                    average_rating: 5.1,
-                    release_date: "2020-09-04"
+                    id: 724495,
+                    poster_path: "https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
+                    title: "The Woman King",
+                    average_rating: 4,
+                    release_date: "2022-09-15"
                     },
                     {
-                    id: 718444,
-                    poster_path: "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg",
-                    title: "Rogue",
-                    average_rating: 7.333333333333333,
-                    release_date: "2020-08-20"
+                    id: 1013860,
+                    poster_path: "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
+                    title: "R.I.P.D. 2: Rise of the Damned",
+                    average_rating: 7,
+                    release_date: "2022-11-15"
                     },
                     {
-                    id: 539885,
-                    poster_path: "https://image.tmdb.org/t/p/original//qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//54yOImQgj8i85u9hxxnaIQBRUuo.jpg",
-                    title: "Ava",
-                    average_rating: 5.875,
-                    release_date: "2020-07-02"
+                    id: 934641,
+                    poster_path: "https://image.tmdb.org/t/p/original//pUPwTbnAqfm95BZjNBnMMf39ChT.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//sP1ShE4BGLkHSRqG9ZeGHg6C76t.jpg",
+                    title: "The Minute You Wake Up Dead",
+                    average_rating: 5,
+                    release_date: "2022-11-04"
                     }
                 ]
             },
@@ -59,16 +59,16 @@ describe('Single movie view flow', () => {
 
     it('should have a title, release date, runtime, average rating, tagline, overview, budget, and revenue on movie details page', () => {
         cy.get('.card').eq(0).click()
-        cy.get('.movie-title').should('contain', 'Money Plane')
-        cy.get('.movie-info').should('contain', 'Release Date: 2020-09-29').should('contain', '82 min').should('contain', 'Avg Rating: 6.00')
-        cy.get('.movie-tag').should('contain', '')
-        cy.get('.movie-overview').should('contain', 'A professional thief with $40 million in debt and his family\'s life on the line must commit one final heist - rob a futuristic airborne casino filled with the world\'s most dangerous criminals.')
-        cy.get('.movie-money').should('contain', 'Budget: Not Available').should('contain', 'Revenue: Not Available')
+        cy.get('.movie-title').should('contain', 'Black Adam')
+        cy.get('.movie-info').should('contain', 'Release Date: 2022-10-19').should('contain', '125 min').should('contain', 'Avg Rating: 4.00')
+        cy.get('.movie-tag').should('contain', 'The world needed a hero. It got Black Adam.')
+        cy.get('.movie-overview').should('contain', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
+        cy.get('.movie-money').should('contain', 'Budget: $200,000,000').should('contain', 'Revenue: $384,571,691')
     })
 
     it('should show a list of genres on the movie details page', () => {
         cy.get('.card').eq(0).click()    
-        cy.get('.genre-container').should('have.descendants', 'li').should('contain', 'Action')
+        cy.get('.genre-container').should('have.descendants', 'li').should('contain', 'Action').should('contain', 'Fantasy').should('contain', 'Science Fiction')
     })
 
     it('should have a button that takes you back to the main page', () => {
@@ -89,14 +89,14 @@ describe('Single movie view flow', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
             statusCode: 201
         })
-        cy.visit('http://localhost:3000/610201').contains('Budget: Not Available')
+        cy.visit('http://localhost:3000/934641').contains('Budget: Not Available')
     })
 
     it('should show revenue not available if there is no revenue for movie', () => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
             statusCode: 201
         })
-        cy.visit('http://localhost:3000/610201').contains('Revenue: Not Available')
+        cy.visit('http://localhost:3000/934641').contains('Revenue: Not Available')
     })
 
     it('should contain the movie ID in the url', () => {
