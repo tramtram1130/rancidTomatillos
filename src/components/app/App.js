@@ -40,15 +40,15 @@ class App extends Component {
         <Route exact path="/"
           render={() => {
             return (
-              <div>
+              <div className='container'>
                 <div className="search-bar-container">{<SearchBar displaySearchedMovies={this.displaySearchedMovies}/>}</div>
                 {this.state.error && <h3>Oops, something went wrong!</h3>}
-                {this.state.isLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
+                {this.state.isLoading && <img src="https://i.gifer.com/ZKZg.gif" alt="loading image" className="loading-image" />}
                 {this.state.filteredMovieSearch.length === 0 
                 ? <Movies allMovies={this.state.allMovies}/>
                 : (this.state.noMovieMatch === false 
                   ? <Movies allMovies={this.state.filteredMovieSearch}/>
-                  : <h2>Sorry no match</h2>)
+                  : <h2 className='search-no-match'>Sorry, there is no match!</h2>)
               }
               </div>
             )
