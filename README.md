@@ -44,12 +44,13 @@
 
 </p>
 <br />
-This solo project was assigned at the end of the second module of Turing's Front-End Engineering program, about 11-12 weeks into its students learning how to code. The details of this project are outlined in <a href="https://frontend.turing.edu/projects/overlook.html">this</a> project spec.
+This is a partnered project assigned at the beginning of the third module of Turing's Front-End Engineering program after being introduced to React, React Router and Cypress. The details of this project are outlined in [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 
 ### Built With
 
 ![React][React-shield]
 ![React Router][ReactRouter-shield]
+![Cypress][Cypress-shield]
 ![CSS][CSS-shield]
 ![HTML5][HTML-shield]
 ![JavaScript][JavaScript-shield]
@@ -60,43 +61,39 @@ This solo project was assigned at the end of the second module of Turing's Front
 
 ## Setup
 - Clone the repository to your local machine
-- Clone down <a href="https://github.com/turingschool-examples/overlook-api">this</a> local server
 - `cd` into the local server
-- Run `npm install`, and then `npm start`
-- Once the local server is launched, open a new terminal tab and `cd` into this project
-- Run `npm install` to install project dependencies
-- Run `npm start` to launch the live server
-- Copy and paste the provided localhost URL into your browser
-- Remember, your username is <code>customer</code> plus any number between <code>1-50</code>, i.e. <code>traveler26</code>, and your password is <code>overlook2021</code>!
+- Run `npm install`, and then `npm start` ; go to http://localhost:3000
 - Explore and enjoy!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
-- [ ] Create hotel manager interaction
-- [ ] Utilize DELETE network request via hotel manager interaction
+- [ ] Incorporate trailers
+- [ ] Glide.js
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
 
-- Utilizes class-to-class interaction and a robust Mocha and Chai testing suite
-- Implements both GET and POST network requests via fetch API to retrieve, display, and add new user data
+- Utilizes end-to-end testing with Cypress
+- Back and forth navigation via React-Router
 - Handles both network request- and user-errors
 
 ### Reflections
 <b>Wins:</b><br>
-Asynchronous tasks and network requests are difficult concepts I struggled wrapping my head around throughout mod 2, but this project truly allowed me to have a better grasp of it!
+
 <p>
 <b>Challenges:</b><br>
-I don't believe I utilized classes as optimally as I can since I feel like there's a bit of redundancy in my code.
 
+  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
 
 Dana Truong | [LinkedIn](https://www.linkedin.com/in/dana-truong-a1b35a250/) | [GitHub](https://github.com/tramtram1130)<br>
+Ian McIntosh | [LinkedIn](https://www.linkedin.com/in/ianmac87/) | [GitHub](https://github.com/grainymac)<br>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,5 +105,6 @@ Dana Truong | [LinkedIn](https://www.linkedin.com/in/dana-truong-a1b35a250/) | [
 [ReactRouter-shield]:  	https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [Illustrator-shield]: https://aleen42.github.io/badges/src/illustrator.svg
 [Vercel-shield]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+[Cypress-shield]: https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e
 
 
