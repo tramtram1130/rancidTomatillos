@@ -3,11 +3,9 @@
 <!-- HEADER -->
 <h1 align="center">Rancid Tomatillos</h1>
 
-<h3 align="center">A Movie Database Site</h3>
+<h3 align="center">A Movie Database Application</h3>
 
 <!-- <h4 align="center"><a href="https://vfields.github.io/travel-tracker/"><strong>Deploy Link</strong></a> | <a href="https://github.com/vfields/travel-tracker"><strong>Explore The Docs »</strong></a></h4> -->
-
-<h5 align="center">(PS. Your username is <code>customer</code> plus any number between <code>1-50</code>, i.e. <code>customer25</code>, and your password is <code>overlook2021</code>!)</h5>
 
 <p></p>
 
@@ -50,11 +48,13 @@ This solo project was assigned at the end of the second module of Turing's Front
 
 ### Built With
 
-![JavaScript][JavaScript-shield]
+![React][React-shield]
+![React Router][ReactRouter-shield]
 ![CSS][CSS-shield]
 ![HTML5][HTML-shield]
-![Mocha][Mocha-shield]
-![Chai][Chai-shield]
+![JavaScript][JavaScript-shield]
+![Vercel][Vercel-shield]
+![Illustrator][Illustrator-shield]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,5 +104,9 @@ Dana Truong | [LinkedIn](https://www.linkedin.com/in/dana-truong-a1b35a250/) | [
 [JavaScript-shield]: https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [CSS-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [HTML-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
-[Mocha-shield]: https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=Mocha&logoColor=white
-[Chai-shield]: https://img.shields.io/badge/Chai-A30701?style=for-the-badge&logo=chai&logoColor=white
+[React-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[ReactRouter-shield]:  	https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[Illustrator-shield]: https://aleen42.github.io/badges/src/illustrator.svg
+[Vercel-shield]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+
+
