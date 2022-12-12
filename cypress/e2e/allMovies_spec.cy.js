@@ -7,36 +7,36 @@ describe('All Movie view flows', () => {
             body: {
                 movies: [
                     {
-                    id: 694919,
-                    poster_path: "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-                    title: "Money Plane",
-                    average_rating: 6.875,
-                    release_date: "2020-09-29"
+                    id: 436270,
+                    poster_path: "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+                    title: "Black Adam",
+                    average_rating: 4,
+                    release_date: "2022-10-19"
                     },
                     {
-                    id: 337401,
-                    poster_path: "https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
-                    title: "Mulan",
-                    average_rating: 5.1,
-                    release_date: "2020-09-04"
+                    id: 724495,
+                    poster_path: "https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
+                    title: "The Woman King",
+                    average_rating: 4,
+                    release_date: "2022-09-15"
                     },
                     {
-                    id: 718444,
-                    poster_path: "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg",
-                    title: "Rogue",
-                    average_rating: 7.333333333333333,
-                    release_date: "2020-08-20"
+                    id: 1013860,
+                    poster_path: "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
+                    title: "R.I.P.D. 2: Rise of the Damned",
+                    average_rating: 7,
+                    release_date: "2022-11-15"
                     },
                     {
-                    id: 539885,
-                    poster_path: "https://image.tmdb.org/t/p/original//qzA87Wf4jo1h8JMk9GilyIYvwsA.jpg",
-                    backdrop_path: "https://image.tmdb.org/t/p/original//54yOImQgj8i85u9hxxnaIQBRUuo.jpg",
-                    title: "Ava",
-                    average_rating: 5.875,
-                    release_date: "2020-07-02"
+                    id: 505642,
+                    poster_path: "https://image.tmdb.org/t/p/original//ps2oKfhY6DL3alynlSqY97gHSsg.jpg",
+                    backdrop_path: "https://image.tmdb.org/t/p/original//xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
+                    title: "Black Panther: Wakanda Forever",
+                    average_rating: 4,
+                    release_date: "2022-11-09"
                     }
                 ]
             },
@@ -51,10 +51,10 @@ describe('All Movie view flows', () => {
     it('should show all the movies when the application loads', () => {
         cy.get('.card-container').within(() => {
             cy.get('.card').should('have.length', 4)
-            cy.get('.card').eq(0).should('have.id', 694919)
-            cy.get('.card').eq(1).should('have.id', 337401)
-            cy.get('.card').eq(2).should('have.id', 718444)
-            cy.get('.card').eq(3).should('have.id', 539885)
+            cy.get('.card').eq(0).should('have.id', 436270)
+            cy.get('.card').eq(1).should('have.id', 724495)
+            cy.get('.card').eq(2).should('have.id', 1013860)
+            cy.get('.card').eq(3).should('have.id', 505642)
         })
     })
 
@@ -71,10 +71,20 @@ describe('All Movie view flows', () => {
     })
 
     it('should be able to search for movie titles in the search bar', () => {
-        cy.get('.search').type('Mulan')
+        cy.get('.search').type('The Woman King')
         cy.get('.card-container').within(() => {
             cy.get('.card').should('have.length', 1)
-            cy.get('.card').eq(0).should('have.id', 337401)
+            cy.get('.card').eq(0).should('have.id', 724495)
         })
+    })
+
+    it('should display an error message if no movie matches the search', () => {
+        cy.get('.search').type('Die Hard')
+        cy.contains('Sorry, there is no match!')
+    })
+
+    it('should display an error message if searched movie title is misspelled', () => {
+        cy.get('.search').type('The Woman Kingg')
+        cy.contains('Sorry, there is no match!')
     })
   });
