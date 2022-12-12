@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './MoviePage.css';
 import { getSelectedMovie } from './../../apiCalls';
 import { NavLink } from 'react-router-dom'
@@ -27,7 +28,6 @@ class MoviePage extends Component {
   render() {
     const genres = String(this.state.movie.genres).split(",").map(genre => <li key={genre}>{genre}</li>);
     let dollarUSLocale = Intl.NumberFormat('en-US');
-    console.log('WHAT IS THIS', typeof this.state.movie.budget)
     const budget = this.state.movie.budget === 0 ? <p>Budget: Not Available</p> : <p>Budget: ${dollarUSLocale.format(this.state.movie.budget)}</p>
     const revenue = this.state.movie.revenue === 0? <p>Revenue: Not Available</p> : <p>Revenue: ${dollarUSLocale.format(this.state.movie.revenue)}</p>
 
@@ -57,6 +57,9 @@ class MoviePage extends Component {
   }
 }
 
-//setup conditional rendering for budget and revunue:
-//
 export default MoviePage
+
+MoviePage.propTypes = {
+  movie: PropTypes.object,
+  movieId: PropTypes.string
+}

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './App.css'
 import Movies from '../Movies/Movies'
 import MoviePage from '../MoviePage/MoviePage'
 import { Route } from 'react-router-dom'
 import { getAllMovies } from './../../apiCalls';
 import SearchBar from '../SearchBar/SearchBar'
+
 
 class App extends Component {
   constructor() {
