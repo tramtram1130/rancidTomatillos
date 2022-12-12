@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Card.css'
 import { NavLink } from 'react-router-dom'
+
 const Card = ({ id, posterPath, title }) => {
   return (
     <NavLink to={`/${id}`}>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { getAllMovies } from '../../apiCalls'
 import './SearchBar.css'
 
@@ -17,13 +16,6 @@ class SearchBar extends Component {
     getAllMovies()
       .then(data => this.setState({allMovies: data.movies}))
       .catch(err => console.log(err))
-  }
-
-  clearSearch = () => {
-    if (this.state.search === "") {
-      this.setState({filteredMovies: []})
-      console.log('clearing')
-    }
   }
 
   handleChange = (event) => {
@@ -51,10 +43,7 @@ class SearchBar extends Component {
           className='search' 
           type='text'
           value={this.state.search}
-          autoComplete='off'
-          name='search'
           placeholder='Search Movies'
-          autoCorrect='off'
           onChange={this.handleChange}
           onKeyUp={this.handleChange}
         />
