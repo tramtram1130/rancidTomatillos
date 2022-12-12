@@ -2,7 +2,7 @@
     box-sizing: border-box;
     border: 3px double black;
     padding: 10px;
-    max-height: 400px;
+    height: 400px;
     max-width: 250px;
     box-shadow: 0 5px 10px rgba(198, 198, 198, 0.281);
 }
