@@ -77,4 +77,14 @@ describe('All Movie view flows', () => {
             cy.get('.card').eq(0).should('have.id', 337401)
         })
     })
+
+    it('should display an error message if no movie matches the search', () => {
+        cy.get('.search').type('Die Hard')
+        cy.contains('Sorry, there is no match!')
+    })
+
+    it('should display an error message if searched movie title is misspelled', () => {
+        cy.get('.search').type('Mulann')
+        cy.contains('Sorry, there is no match!')
+    })
   });
