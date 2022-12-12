@@ -1,1 +1,6 @@
-
+.search {
+    border: 5px ridge #6EB456;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+}

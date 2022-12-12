@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getAllMovies } from '../../apiCalls'
+import './SearchBar.css'
 
 class SearchBar extends Component {
   constructor(props) {
@@ -41,7 +42,8 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input 
+        <input
+          className='search' 
           type='text'
           value={this.state.search}
           autoComplete='off'

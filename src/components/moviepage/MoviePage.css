@@ -17,6 +17,7 @@
 .movie-poster {
     width: 800px;
     height: auto;
+    border: 10px groove black;
     box-shadow: 0px 0px 5px 10px rgba(255, 255, 255, 0.191);
 }
 
@@ -24,6 +25,8 @@
     display: flex;
     flex-direction: column;
     margin-left: 15px;
+    padding-left: 10px;
+    padding-right:10px;
 }
 
 .movie-title {
@@ -47,13 +50,13 @@
     margin: 0px;
 }
 
-.movie-overview {
+.movie-overview-title {
     font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 15px 0 0px 0; 
 }
 
-.movie-overview p {
+.movie-overview {
     font-family: 'Open Sans', sans-serif;
     /* margin: 0px 0 15px 0; */
     padding-left: 15px;
@@ -68,16 +71,46 @@
     text-align: center;
     background-color: rgba(0, 0, 0, 0);
     color: #fff;
-    border: 5px solid rosybrown;
+    border-radius: 5px;
     padding: 15px 32px;
     margin: 10px 7px;
     font-size: 16px;
+    transition: all 0.5s;
+    position: relative;
 }
 
-.home-btn:hover {
-    background-color: green;
-    color: #fff;
+.home-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
 }
 
-/* ^^^^ change the colours of these buttons later and on the hover - these are just place holders for now */
+.home-btn:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
 
+.home-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.5);
+    transform: scale(1.2,1.2);
+}
+
+.home-btn:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
