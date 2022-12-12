@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { getAllMovies } from '../../apiCalls'
-import './SearchBar.css'
 
 class SearchBar extends Component {
   constructor(props) {
@@ -27,23 +26,26 @@ class SearchBar extends Component {
 
   handleChange = (event) => {
     event.preventDefault()
-    this.handleFiltering()
-    this.clearSearch()
     this.setState({search: event.target.value})
+    this.handleFiltering()
   }
 
   handleFiltering = () => {
+    let noMovieMatch = false
     const search = this.state.search
-    const matchedMovies = this.state.allMovies.filter(movie => (movie.title.toLowerCase()).includes(search.toLowerCase()))
+    const matchedMovies = this.state.allMovies.filter(movie => (movie.title.toLowerCase()).match(search.toLowerCase()))
+    if (matchedMovies.length === 0) {
+      noMovieMatch = true
+    }
     this.setState({filteredMovies: matchedMovies})
-    this.props.displaySearchedMovies(matchedMovies)
+    this.props.displaySearchedMovies(matchedMovies, noMovieMatch)
+    noMovieMatch = false
   }
 
   render() {
     return (
-      <div className='search-container'>
-        <input
-          className='search' 
+      <div>
+        <input 
           type='text'
           value={this.state.search}
           autoComplete='off'
