@@ -27,7 +27,7 @@ class App extends Component {
   displaySearchedMovies = (filteredMovies) => {
     if (filteredMovies.length > 0) {
       this.setState({filteredMovieSearch: filteredMovies})
-    }
+    } 
   }
 
   render() {
