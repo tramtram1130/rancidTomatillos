@@ -45,7 +45,7 @@ describe('All Movie view flows', () => {
 
     });
     it('should show the title of the application when it loads', () => {
-        cy.get('.header-container').should('contain', 'Rancid Tomatillos')
+        cy.get('.header-container').should('have.descendants', 'img')
     });
 
     it('should show all the movies when the application loads', () => {
@@ -64,5 +64,17 @@ describe('All Movie view flows', () => {
         })
         cy.visit('http://localhost:3000')
           .contains('Oops, something went wrong!')
+    })
+
+    it('should have a search bar to search movie titles', () => {
+        cy.get('.search-container').should('have.descendants', 'input')
+    })
+
+    it('should be able to search for movie titles in the search bar', () => {
+        cy.get('.search').type('Mulan')
+        cy.get('.card-container').within(() => {
+            cy.get('.card').should('have.length', 1)
+            cy.get('.card').eq(0).should('have.id', 337401)
+        })
     })
   });
