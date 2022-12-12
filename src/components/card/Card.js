@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Card.css'
 import { NavLink } from 'react-router-dom'
 const Card = ({ id, posterPath, title }) => {
@@ -10,4 +11,11 @@ const Card = ({ id, posterPath, title }) => {
     </NavLink>
   )
 }
+
 export default Card
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  posterPath: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+}

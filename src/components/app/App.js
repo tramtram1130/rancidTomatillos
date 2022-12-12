@@ -67,11 +67,3 @@ class App extends Component {
 }
 
 export default App;
-
-App.propTypes = {
-  allMovies: PropTypes.array,
-  isLoading: PropTypes.bool,
-  error: PropTypes.string,
-  filteredMovieSearch: PropTypes.array,
-  noMovieMatch: PropTypes.bool
-}

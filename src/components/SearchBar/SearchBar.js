@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { getAllMovies } from '../../apiCalls'
 import './SearchBar.css'
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       allMovies: [],
       search: "",
