@@ -4,6 +4,7 @@
 <h1 align="center">Rancid Tomatillos</h1>
 
 <h3 align="center">A Movie Database Application</h3>
+Rancid Tomatillos is a movie database application that lets users search movie titles via search bar or by selecting the movie posters.  The user can select a movie that will bring up more information about that movie.
 
 <!-- <h4 align="center"><a href="https://vfields.github.io/travel-tracker/"><strong>Deploy Link</strong></a> | <a href="https://github.com/vfields/travel-tracker"><strong>Explore The Docs »</strong></a></h4> -->
 
@@ -69,8 +70,9 @@ This is a partnered project assigned at the beginning of the third module of Tur
 
 ## Roadmap
 
-- [ ] Incorporate trailers
-- [ ] Glide.js
+- [ ] Incorporate movie trailers on the single movie page to enhance UI/UX
+- [ ] Glide.js to enhance application aesthetic
+- [ ] More UI on main/home page ie: favorite movies, larger movie database to search through, featured reccommended movie section, or filter by genre
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -82,11 +84,13 @@ This is a partnered project assigned at the beginning of the third module of Tur
 
 ### Reflections
 <b>Wins:</b><br>
-
+- Dana : Implementing new libraries that I am not truly familiar with and finding it rewarding because of how weary I feel about materials I'm not used to.
+- Ian : Learning new technologies and applying them in a project setting seemed like huge task in the beginning but seemed to overcome in the end working together. 
 <p>
 <b>Challenges:</b><br>
-
   
+- Dana : Having to refactor to implement React Route.  It was difficult to scale down the complexicity of the conditional rendering to fit in the routing.
+- Ian : Remembering certain syntax for React, Router and Cypress.  Specifically in Cypress, knowing when to use '.should' and '.contain'.  And conditional rendering syntax.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
