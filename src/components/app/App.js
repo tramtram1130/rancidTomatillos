@@ -13,7 +13,8 @@ class App extends Component {
       allMovies: [],
       isLoading: true,
       error: '',
-      filteredMovieSearch: []
+      filteredMovieSearch: [],
+      noMovieMatch: false
     }
     this.displaySearchedMovies = this.displaySearchedMovies.bind(this.displaySearchedMovies)
   }
@@ -24,10 +25,13 @@ class App extends Component {
       .catch(err => this.setState({error: err}))
   }
 
-  displaySearchedMovies = (filteredMovies) => {
-    if (filteredMovies.length > 0) {
+  displaySearchedMovies = (filteredMovies, noMovieMatch) => {
+    this.setState({noMovieMatch: false})
+    if (noMovieMatch === false) {
       this.setState({filteredMovieSearch: filteredMovies})
-    } 
+    } else {
+      this.setState({noMovieMatch: true})
+    }
   }
 
   render() {
@@ -42,7 +46,9 @@ class App extends Component {
                 {this.state.isLoading && <img src="https://i.gifer.com/ZKZg.gif" />}
                 {this.state.filteredMovieSearch.length === 0 
                 ? <Movies allMovies={this.state.allMovies}/>
-                : <Movies allMovies={this.state.filteredMovieSearch}/>
+                : (this.state.noMovieMatch === false 
+                  ? <Movies allMovies={this.state.filteredMovieSearch}/>
+                  : <h2>Sorry no match</h2>)
               }
               </div>
             )
