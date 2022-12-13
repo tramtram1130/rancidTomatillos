@@ -6,7 +6,7 @@
 <h3 align="center">A Movie Database Application</h3>
 Rancid Tomatillos is a movie database application that lets users search movie titles via search bar or by selecting the movie posters.  The user can select a movie that will bring up more information about that movie.
 
-<!-- <h4 align="center"><a href="https://vfields.github.io/travel-tracker/"><strong>Deploy Link</strong></a> | <a href="https://github.com/vfields/travel-tracker"><strong>Explore The Docs »</strong></a></h4> -->
+<h4 align="center"><a href="https://rancid-tomatillos-wheat.vercel.app/"><strong>Deploy Link</strong></a> | <a href="https://github.com/tramtram1130/rancidTomatillos"><strong>Explore The Docs »</strong></a></h4>
 
 <p></p>
 
