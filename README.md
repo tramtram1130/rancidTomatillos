@@ -45,7 +45,7 @@ Rancid Tomatillos is a movie database application that lets users search movie t
 
 </p>
 <br />
-This is a partnered project assigned at the beginning of the third module of Turing's Front-End Engineering program after being introduced to React, React Router and Cypress. The details of this project are outlined in [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
+This is a partnered project assigned at the beginning of the third module of Turing's Front-End Engineering program after being introduced to React, React Router and Cypress. The details of this project are outlined in <a href="https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html"><strong>here.</strong></a>
 
 ### Built With
 
