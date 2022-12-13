@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Header from './components/Header/Header.js';
-import App from './components/app/App.js';
+import App from './components/App/App.js';
 import Footer from './components/Footer/Footer.js'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
